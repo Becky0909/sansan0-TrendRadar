@@ -340,7 +340,7 @@ ai:
 
   api_key: "sk-cp-RpZIS_tKfjHP2WPCXU5WGlj84SXsuVTCtpFaZN0k_D4ioAyvo3GZ9yN773dL8ai_pjKYw_jObMkW37eWx7N9rGudAhecs8wpIhgcmiUHyogo-t6teSDLXOY"                       # API Key（建议使用环境变量 AI_API_KEY）
   
-  api_base: "	https://api.minimax.io/v1"                      # 自定义 API 端点（可选，大多数情况留空）
+  api_base: "https://api.minimax.io/v1"                      # 自定义 API 端点（可选，大多数情况留空）
                                     # 示例: https://api.openai.com/v1（自建代理或兼容接口）
                                     #
                                     # 💡 超级重要：连接任意兼容 OpenAI 协议的模型商

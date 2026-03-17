@@ -59,22 +59,22 @@ platforms:
       name: "财联社热门"
     - id: "wallstreetcn-hot"
       name: "华尔街见闻"
-    - id: "toutiao"
-      name: "今日头条"
-    - id: "baidu"
-      name: "百度热搜"
     - id: "thepaper"
       name: "澎湃新闻"
-    - id: "bilibili-hot-search"
-      name: "bilibili 热搜"
-    - id: "ifeng"
-      name: "凤凰网"
-    - id: "tieba"
-      name: "贴吧"
-    - id: "weibo"
-      name: "微博"
-    - id: "zhihu"
-      name: "知乎"
+#    - id: "toutiao"
+#      name: "今日头条"
+ #   - id: "baidu"
+#      name: "百度热搜"
+#    - id: "ifeng"
+#      name: "凤凰网"
+#    - id: "tieba"
+#      name: "贴吧"
+#    - id: "weibo"
+#      name: "微博"
+#    - id: "zhihu"
+#      name: "知乎"
+#    - id: "bilibili-hot-search"
+ #     name: "bilibili 热搜"
 
 
 
@@ -124,6 +124,16 @@ rss:
       name: "雅虎财经"
       url: "https://finance.yahoo.com/news/rssindex"
 
+    - id: "gold/finance"
+      name: "gold/finance"
+      url: "https://www.bing.com/news/search?q=黄金价格+走势&format=RSS"
+
+    - id: "my-ai"
+      name: "my-ai"
+      url: "https://www.bing.com/news/search?q=人工智能&format=RSS"
+
+
+
 
 
     # 自定义源示例
@@ -166,7 +176,7 @@ report:
   # false: 按匹配到的热点条数排序（条数多的在前）
   sort_by_position_first: false
 
-  rank_threshold: 5                   # 排名高亮阈值
+  rank_threshold: 4                   # 排名高亮阈值
 
   max_news_per_keyword: 0             # 每个关键词最大显示数量（0=不限制）
 
@@ -190,20 +200,20 @@ display:
   #   2. 下方 regions 中对应开关为 true
   region_order:
     - ai_analysis                       # 5️⃣ AI 分析区域
-    - new_items                       # 1️⃣ 新增热点区域
     - hotlist                       # 2️⃣ 热榜区域（关键词匹配）
+    - new_items                       # 1️⃣ 新增热点区域
     - standalone                       # 4️⃣ 独立展示区
     - rss                       # 3️⃣ RSS 订阅区域
   regions:
     ai_analysis: true # AI 分析区域
-    new_items: true # 新增热点区域（含热榜新增 + RSS 新增）
     hotlist: true # 热榜区域（关键词匹配的热点新闻）
+    new_items: true # 新增热点区域（含热榜新增 + RSS 新增）
     standalone: true # 独立展示区（完整热榜/RSS，不受关键词过滤）
     rss: true # RSS 订阅区域
   standalone:
     platforms: ["wallstreetcn-hot","cls-hot","thepaper"] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
-    rss_feeds: ["yahoo-finance"] # RSS 源 ID 列表（如 ["hacker-news"]）
-    max_items: 5                     # 每个源最多展示条数（0=不限制）
+    rss_feeds: ["yahoo-finance","my-ai","gold/finance"] # RSS 源 ID 列表（如 ["hacker-news"]）
+    max_items: 3                     # 每个源最多展示条数（0=不限制）
 
 
 # ===============================================================
@@ -426,7 +436,7 @@ ai_analysis:
                                       # GitHub Action 部署默认推送约 20 次（每小时推送一次）， 约 0.1 元/天
                                       # Docker 部署默认推送 48 次(每半小时推送一次)， 约 0.2 元/天
 
-  include_rss: false                # 是否包含 RSS 内容进行分析
+  include_rss: true                # 是否包含 RSS 内容进行分析
   
   include_standalone: true          # 是否将独立展示区数据纳入 AI 分析（只需上方 display 区的 standalone 配置了平台/RSS 即可）
 
@@ -445,7 +455,7 @@ ai_analysis:
 # 模型配置见上方 ai 配置段
 # ===============================================================
 ai_translation:
-  enabled: false                    # 是否启用翻译功能
+  enabled: true                    # 是否启用翻译功能
 
   # 翻译目标语言
   # 格式：自然语言描述

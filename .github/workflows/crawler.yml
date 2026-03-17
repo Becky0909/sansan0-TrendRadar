@@ -167,3 +167,31 @@ jobs:
           S3_REGION: ${{ secrets.S3_REGION }}
           GITHUB_ACTIONS: true
         run: python -m trendradar
+
+      - name: Commit and Push index.html
+        if: success()
+        run: |
+          # 检查 index.html 是否存在
+          if [ -f "index.html" ]; then
+            # 配置 git
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            
+            # 添加 index.html
+            git add index.html
+            
+            # 检查是否有变更
+            if git diff --cached --quiet; then
+              echo "No changes to commit"
+            else
+              # 提交变更
+              git commit -m "Update index.html - $(date '+%Y-%m-%d %H:%M')"
+              
+              # 推送到仓库
+              git push
+              echo "index.html updated and pushed successfully"
+            fi
+          else
+            echo "Warning: index.html not found, skipping commit"
+          fi
+

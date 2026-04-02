@@ -350,7 +350,7 @@ ai:
   
   model: "openai/MiniMax-M2.5"
 
-  api_key: "sk-NzQ5LTEyMjI5Mjg3NTEyLTE3NzM3MzUyMjAwMDE="
+  api_key: "sk-NDU5LTExMjg5OTM5OTkzLTE3NzUxMTM4NjQ3Mjg="
   
   api_base: "https://api.scnet.cn/api/llm/v1"                      # 自定义 API 端点（可选，大多数情况留空）
                                     # 示例: https://api.openai.com/v1（自建代理或兼容接口）
